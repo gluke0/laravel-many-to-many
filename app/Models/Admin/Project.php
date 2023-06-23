@@ -17,10 +17,14 @@ class Project extends Model
             return Str::slug($title, '-');
         }
         
-        protected $fillable = ['title', 'slug', 'description', 'technology', 'image', 'category_id'];
+        protected $fillable = ['title', 'slug', 'description', 'image', 'category_id'];
 
     public function category(){
         return $this->belongsTo(Category::class);
+    }
+
+    public function technologies(){
+        return $this->belongsToMany(Technology::class);
     }
 
 
