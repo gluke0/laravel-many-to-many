@@ -7,7 +7,16 @@
         <div class="card-body p-3">
             <p class="card-text"><strong> Image: </strong> <p class="card-text"> <img class="img-fluid" src="{{asset('storage/' . $project->image)}}" alt=""> </p> </p>
             <p class="card-text"><strong> Description: </strong> {{ $project->description }} </p>
-            <p class="card-text"><strong> Languages: </strong> {{ $project->languages }} </p>
+
+            @if ($project->technologies == '')
+                <p class="card-text"><strong> Technology: </strong> 
+                    @foreach ($project->technologies as $elem)
+                        {{$elem->name}}
+                    @endforeach
+                </p>
+            @else
+                <p class="card-text"><strong> Technology: </strong> <span class="text-danger"> Project techology has not been declared </span></p>
+            @endif
 
             {{-- this is possible because of the controller and the relationship created in the Project+Category.php files --}}
             {{-- <p class="card-text"><strong> Category: </strong> {{ $project->category->name }} </p> --}}

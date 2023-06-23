@@ -16,9 +16,21 @@
     @forelse ($projects as $elem)
     <div class="card">
         <div class="card-body p-3">
+            
             <p class="card-text"><strong> Title: </strong> {{ $elem->title }} </p>
+
             <p class="card-text"> <img class="img-fluid" src="{{asset('storage/' . $elem->image)}}" alt=""> </p>
-            <p class="card-text"><strong> Languages: </strong> {{ $elem->languages }} </p>
+
+            @if ($elem->technologies == '')
+                <p class="card-text"><strong> Technology: </strong> 
+                    @foreach ($elem->technologies as $item)
+                        {{$item->name}}
+                    @endforeach
+                </p>
+            @else
+                <p class="card-text"><strong> Technology: </strong> <span class="text-danger"> Project techology has not been declared </span></p>
+            @endif
+
             <p> <a class="text-decoration-none" href="{{ route('admin.projects.show', $elem) }}"> More </a></p>
         </div>
         
