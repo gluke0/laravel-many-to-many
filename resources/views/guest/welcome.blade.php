@@ -14,7 +14,7 @@
             Welcome
             </h1>
 
-            <p class="col-md-8 fs-4 text-center">website is currently under construction.</p>
+            <p class="col-md-8 fs-4 text-center">website is currently under construction</p>
         </div>
     </div>
 
