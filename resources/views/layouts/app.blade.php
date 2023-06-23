@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title> gluke | Welcome </title>
 
 
     <!-- Fonts -->
@@ -20,7 +20,6 @@
 
 <body>
     <div id="app">
-
 
         <nav class="navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
