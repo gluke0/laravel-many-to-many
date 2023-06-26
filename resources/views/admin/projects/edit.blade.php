@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('title', 'gluke | Edit')
+
 @section('content')
     <h1 class="text-uppervase"> modify {{ $project->title }} </h1>
 

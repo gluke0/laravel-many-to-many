@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('title', 'gluke | Create')
+
 @section('content')
     <h1 class="text-uppervase"> add a project to portfolio </h1>
 
