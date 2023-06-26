@@ -21,9 +21,13 @@
             <label for="input-title" class="form-label text-white">Title:</label>
             <input type="text" id="input-title" class="form-control" name="title" placeholder="title" autofocus>
         </div>
-        <div class="form-group mt-3 col-6">
-            <label for="input-languages" class="form-label text-white">Languages:</label>
-            <input type="text" id="input-languages" class="form-control" name="languages" placeholder="languages"> 
+        <div class="form-group mt-3">
+            @foreach ($technologies as $tech)
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="technologies[]" value="{{$tech->id}}">
+                    <label for="techology-checkbox-{{$tech->id}}" class="form-check-label"> {{ $tech->name }} </label>
+                </div>   
+            @endforeach
         </div>
         <div>
             <label for="input-categories" class="form-label text-white">Categories:</label>
