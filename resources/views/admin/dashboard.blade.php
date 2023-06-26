@@ -18,7 +18,9 @@
 <div class="container">
     <h2 class="fs-1"> Hello {{ $name }}! </h2>
 
-    <div class="fs-5"> You have <span class="text-white"> <strong> {{$projectsN}} projects </strong></span> in the database.</div> <div class="fs-5"> If you want to add more go to the <a class="text-decoration-none text-white" href="{{ route('admin.projects.create') }}"> <strong> Create Page. </strong> </a> </div>
+    <div class="fs-5"> You have <a class="text-decoration-none text-white" href="{{ route('admin.projects.index') }}"> <strong> {{$projectsN}} projects </strong> </a> in the database.</div> <div class="fs-5"> If you want to add more go to the <a class="text-decoration-none text-white" href="{{ route('admin.projects.create') }}"> <strong> Create Page. </strong> </a> </div>
+
+    
 </div>
 
 @endsection
