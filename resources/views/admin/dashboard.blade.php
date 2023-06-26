@@ -9,7 +9,9 @@
         {{ __('Dashboard') }}
     </h2>
 
-    <div id="date">
+    <div>
+        <span class="small" id="date">  </span>
+        <span style="font-size: 0.7rem" id="time">  </span>
     </div>
 </div>
 
@@ -28,8 +30,10 @@ const zeroFill = n => {
 }
 const interval = setInterval(() => {
     const now = new Date();
-    const dateTime = zeroFill(now.getUTCDate()) + ' / ' + zeroFill((now.getMonth() + 1)) + ' / ' + String(now.getFullYear()).slice(-2) + ' ' + zeroFill(now.getHours()) + ':' + zeroFill(now.getMinutes());
-    document.getElementById('date').innerHTML = dateTime;
+    const date = zeroFill(now.getUTCDate()) + ' / ' + zeroFill((now.getMonth() + 1)) + ' / ' + String(now.getFullYear()).slice(-2);
+    const time = zeroFill(now.getHours()) + ':' + zeroFill(now.getMinutes());
+    document.getElementById('date').innerHTML = date;
+    document.getElementById('time').innerHTML = time;
 }, 1000);
 </script>
 
