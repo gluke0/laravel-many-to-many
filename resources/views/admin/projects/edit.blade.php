@@ -3,7 +3,8 @@
 @section('title', 'gluke | Edit')
 
 @section('content')
-    <h1 class="text-uppervase"> modify {{ $project->title }} </h1>
+<div class="container">
+    <h1 class="text-uppercase"> edit <span class="text-white"> {{ $project->title }} </span> </h1>
 
     @if ($errors->any())
         <div>
@@ -72,6 +73,5 @@
         </div>
         <button type="submit" class="btn btn-primary btn-outline-light my-4 col-2 mx-auto text-uppercase" onclick="return confirm('Are you sure you want to edit {{$project -> title }}')"><strong> modify </strong></button>
     </form>
-
-
+</div>
 @endsection

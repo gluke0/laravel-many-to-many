@@ -3,7 +3,8 @@
 @section('title', 'gluke | Create')
 
 @section('content')
-    <h1 class="text-uppervase"> add a project to portfolio </h1>
+<div class="container">
+    <h1 class="text-uppercase"> add a project </h1>
 
     @if ($errors->any())
         <div>
@@ -56,5 +57,5 @@
         <button type="submit" class="btn btn-primary btn-outline-light my-4 col-2 mx-auto text-uppercase"><strong> add </strong></button>
     </form>
 
-
+</div>
 @endsection
