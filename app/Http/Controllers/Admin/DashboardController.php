@@ -7,7 +7,13 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function index(){
-        return view('admin.dashboard');
+    public function index()
+    {
+        $name = auth()->user()->name;
+        
+        // dd($name);
+    
+        return view('admin.dashboard', compact('name'));
     }
+
 }

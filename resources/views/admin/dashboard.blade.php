@@ -13,6 +13,10 @@
     </div>
 </div>
 
+<div class="container">
+    <h2 class="fs-1"> Hello {{ $name }}! </h2>
+</div>
+
 @endsection
 
 <script>
