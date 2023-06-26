@@ -61,6 +61,10 @@
             </textarea>
         </div>
         <div class="form-group mt-3">
+            <label for="input-link" class="form-label text-white">Download Link:</label>
+            <input type="text" id="input-link" class="form-control" name="link" placeholder="link" value="{{old('link') ?? $project->link}}">
+        </div>
+        <div class="form-group mt-3">
             <label for="input-image" class="form-label text-white">Image:</label>
             <input type="file" id="input-image" class="form-control" name="image" placeholder="image link" value="{{old('image') ?? $project->image}}"> 
         </div>

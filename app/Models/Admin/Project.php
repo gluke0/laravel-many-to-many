@@ -17,7 +17,7 @@ class Project extends Model
             return Str::slug($title, '-');
         }
         
-        protected $fillable = ['title', 'slug', 'description', 'image', 'category_id'];
+        protected $fillable = ['title', 'slug', 'description', 'image', 'category_id', 'link',];
 
     public function category(){
         return $this->belongsTo(Category::class);

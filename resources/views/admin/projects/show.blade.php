@@ -26,6 +26,11 @@
             @else
                 <p class="card-text"><strong> Category: </strong> <span class="text-danger"> This project has no category </span></p>
             @endif
+            @if ($project->link != null)
+                <p class="card-text"><a href="{{ $project->link }}">Download</a></p>
+            @else
+                <p class="card-text"> <span class="text-danger"> This project has no download link </span></p>
+            @endif
         </div>
     </div>
     <div class="mt-5">
