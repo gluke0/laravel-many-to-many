@@ -131,6 +131,8 @@ class ProjectController extends Controller
 
         if($request->has('technologies')){
             $project->technologies()->sync($request->technologies);
+        } else {
+            $project->technologies()->sync([]);
         }
         
         return redirect()->route('admin.projects.index')->with('success', "The project $project->title has been edited");
