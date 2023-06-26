@@ -66,10 +66,11 @@ class ProjectController extends Controller
         $new_project->fill($form_data);
         $new_project->save();
         
+        // dd($request);
+
         if($request->has('technologies')){
             $new_project->technologies()->attach($request->technologies);
         }
-        // dd($request);
 
 
         return redirect()->route('admin.projects.index')->with('success', "A new project has been added");
@@ -127,6 +128,10 @@ class ProjectController extends Controller
         }
 
         $project->update($form_data);
+
+        if($request->has('technologies')){
+            $project->technologies()->sync($request->technologies);
+        }
         
         return redirect()->route('admin.projects.index')->with('success', "The project $project->title has been edited");
     }
@@ -139,6 +144,8 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+
+        $project->technologies()->sync([]);
 
         if($project->image){
             Storage::delete($project->image);

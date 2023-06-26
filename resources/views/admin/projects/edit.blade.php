@@ -22,9 +22,24 @@
             <label for="input-title" class="form-label text-white">Title:</label>
             <input type="text" id="input-title" class="form-control" name="title" placeholder="title" autofocus value="{{old('title') ?? $project->title}}">
         </div>
-        <div class="form-group mt-3 col-6">
-            <label for="input-languages" class="form-label text-white">Languages:</label>
-            <input type="text" id="input-languages" class="form-control" name="languages" placeholder="languages" value="{{old('languages') ?? $project->languages}}"> 
+        <div class="form-group mt-3">
+            @foreach ($technologies as $tech)
+                <div class="form-check @error ('technologies') is-invalid @enderror">
+                    @if($errors->any())
+                        <input class="form-check-input" type="checkbox" name="technologies[]" value="{{$tech->id}}" id="techology-checkbox-{{$tech->id}}" {{in_array($tech->id, old('technologies, []')) ? 'checked' : '' }}>
+                    @else
+                        <input class="form-check-input" type="checkbox" name="technologies[]" value="{{$tech->id}} "id="techology-checkbox-{{$tech->id}}"  {{($project->technologies->contains($tech)) ? 'checked' : '' }}>
+                    @endif
+                        <label for="techology-checkbox-{{$tech->id}}" class="form-check-label"> {{ $tech->name }} </label>
+                </div>   
+            @endforeach
+            @error('technologies')
+            
+            <div>
+                {{$message}}
+            </div>
+
+            @enderror
         </div>
         <div>
             <label for="input-categories" class="form-label text-white">Categories:</label>
@@ -32,8 +47,10 @@
                 <option value=""> choose a category </option>
                 @foreach ($categories as $category)
                     <option value="{{$category->id}}"  {{old('category_id', $project->category_id) == $category->id ? 'selected' : ''}} >{{$category->name}}</option>
+
                     {{-- <option value="{{$category->id}}"  @selected(old('category_id') == $category_id)>{{$category->name}}</option> 
                     shorter version but need to check why it doesn't work--}}
+
                 @endforeach
             </select>
         </div>
