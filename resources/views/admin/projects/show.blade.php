@@ -8,7 +8,7 @@
             <p class="card-text"><strong> Image: </strong> <p class="card-text"> <img class="img-fluid" src="{{asset('storage/' . $project->image)}}" alt=""> </p> </p>
             <p class="card-text"><strong> Description: </strong> {{ $project->description }} </p>
 
-            @if ($project->technologies)
+            @if ($project->technologies && count($project->technologies) > 0)
                 <p class="card-text"><strong> Technology: </strong> 
                     @foreach ($project->technologies as $elem)
                         {{ $elem->name }}

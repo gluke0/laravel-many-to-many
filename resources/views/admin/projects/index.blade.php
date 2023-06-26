@@ -21,7 +21,7 @@
 
             <p class="card-text"> <img class="img-fluid" src="{{asset('storage/' . $elem->image)}}" alt=""> </p>
 
-            @if ($elem->technologies)
+            @if ($elem->technologies && count($elem->technologies) > 0)
                 <p class="card-text"><strong> Technology: </strong> 
                     @foreach ($elem->technologies as $item)
                         {{$item->name}}
