@@ -14,6 +14,8 @@ class DashboardController extends Controller
         // dd($name);
 
         $projects = Project::All();
+         // dd($projects);
+
         $projectsN = $projects->count();
 
         return view('admin.dashboard', compact('name', 'projectsN'));
